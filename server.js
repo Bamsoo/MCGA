@@ -21,5 +21,3 @@ const get = async function(a, b) {
   await page.click('.button-text');
   await browser.close();
 }
-
-
