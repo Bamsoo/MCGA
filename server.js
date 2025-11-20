@@ -23,6 +23,5 @@ const get = async function(a, b) {
   const pageTitle = await page.title();
   console.log('Page title: ' + pageTitle);
   await page.click('.button-text');
-  //await page.waitForTimeout(5000); 
   await browser.close();
 }
