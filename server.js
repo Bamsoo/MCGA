@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer'); 
 const http = require('http');
-const name = 'node-hello-world';
+const name = 'Mcg/a';
 const port = '8888';
 const app = new http.Server();
 
@@ -22,5 +22,6 @@ const get = async function(a, b) {
   const page = await browser.newPage();
   await page.goto('https://focus-pardot.fr/form/');
   const pageTitle = await page.title();
+  console.log('Page title: ' + pageTitle);
   await browser.close();
 }
