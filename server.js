@@ -22,5 +22,7 @@ const get = async function(a, b) {
   await page.goto('https://m7g-cdn.bamsoo.com/lp/landing-page/fake-rt-landing-page-MCY5VPXXPYA5GOZFPJUKUCEZRTVQ?firstName=aaa&lastName=bbb&company=ccc&email=fp@bamsoo.com');
   const pageTitle = await page.title();
   console.log('Page title: ' + pageTitle);
+  await page.click('.button-text');
+  await page.waitForTimeout(5000); 
   await browser.close();
 }
