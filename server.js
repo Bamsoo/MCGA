@@ -17,6 +17,7 @@ app.listen(port, () => {
 
 
 const get = async function(a, b) {
+  //const browser = await puppeteer.launch({executablePath: '/path/to/Chrome'});
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto('https://focus-pardot.fr/form/');
