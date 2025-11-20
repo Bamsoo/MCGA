@@ -1,8 +1,16 @@
 const http = require('http');
-const server = http.createServer((req, res) => {
+
+const name = 'node-hello-world';
+const port = '8888';
+
+const app = new http.Server();
+
+app.on('request', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello, World!\n');
+  res.write('Hello World');
+  res.end('\n');
 });
-server.listen(PORT, 'localhost', () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
+
+app.listen(port, () => {
+  console.log(`${name} is listening on port ${port}`);
 });
