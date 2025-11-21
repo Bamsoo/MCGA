@@ -7,7 +7,7 @@ const lp = 'https://m7g-cdn.bamsoo.com/lp/landing-page/fake-rt-landing-page-MCY5
 app.get('/', (req, res) => {
   var e = req.query.email ? req.query.email : "";
   var f = req.query.firstName ? req.query.firstName : "";
-  var l = eq.query.lastName ? req.query.lastName : "";
+  var l = req.query.lastName ? req.query.lastName : "";
   var c = req.query.company ? req.query.company : "";
   get(e,f,l,c);
   res.json({ email: e, firstName: f, lastName: l, company: c})
