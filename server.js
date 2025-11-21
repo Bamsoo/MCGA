@@ -17,7 +17,7 @@ const get = async function(e,f,l,c) {
   if(e==='' || f==='' || l==='' || c==='') return;
   const browser = await puppeteer.launch({args: ['--no-sandbox'], executablePath: '/opt/render/project/src/chrome/linux-142.0.7444.175/chrome-linux64/chrome'});
   const page = await browser.newPage();
-  const u = lp + '?email=' + e + '&firstName=' + f + '&lastName=' + l + '&company=' + c;
+  const u = lp + '?email=' + encodeURIComponent(e) + '&firstName=' + encodeURIComponent(f) + '&lastName=' + encodeURIComponent(l) + '&company=' + encodeURIComponent(c);
   await page.goto(u);
   const pageTitle = await page.title();
   console.log('Opening: ' + u);
