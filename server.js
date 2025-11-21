@@ -17,12 +17,16 @@ const get = async function(e,f,l,c) {
   if(e==='' || f==='' || l==='' || c==='') return;
   const browser = await puppeteer.launch({args: ['--no-sandbox'], executablePath: '/opt/render/project/src/chrome/linux-142.0.7444.175/chrome-linux64/chrome'});
   const page = await browser.newPage();
-  const u = lp + '?email=' + encodeURIComponent(e) + '&firstName=' + encodeURIComponent(f) + '&lastName=' + encodeURIComponent(l) + '&company=' + encodeURIComponent(c);
+  const u = lp + '?email=' + _u(e) + '&firstName=' + _u(f) + '&lastName=' + _u(l) + '&company=' + _u(c);
   await page.goto(u);
   const pageTitle = await page.title();
   console.log('Opening: ' + u);
   await page.click('.button-text');
   await browser.close();
+}
+
+function _u(p) {
+  return encodeURIComponent(p).replaceAll('%20','+');
 }
 
 app.listen(port, () => { console.log(`Listening on port ${port}`) })
